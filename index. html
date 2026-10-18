@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Plus - Elegance in Every Curve</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #FAF4F4;
+            color: #4A3E3D;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top, #FFF0F3 0%, #FAF4F4 70%);
+            z-index: -1;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-circle {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 2px solid #D4AF37;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15);
+            margin-bottom: 15px;
+            padding: 10px;
+            position: relative;
+        }
+
+        .logo-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.1rem;
+            font-weight: 700;
+            color: #C59B27;
+            line-height: 1;
+            font-style: italic;
+        }
+
+        .logo-subtitle {
+            font-size: 0.45rem;
+            letter-spacing: 1.5px;
+            color: #C59B27;
+            text-transform: uppercase;
+            margin-top: 4px;
+            font-weight: 600;
+        }
+
+        .slogan {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            color: #8C6D68;
+            font-style: italic;
+            position: relative;
+            display: inline-block;
+        }
+
+        .slogan::before, .slogan::after {
+            content: "✨";
+            margin: 0 8px;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        .links-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 25px;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #E8D5C4;
+            border-radius: 20px;
+            padding: 14px 20px;
+            text-decoration: none;
+            color: #4A3E3D;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 4px 15px rgba(140, 109, 104, 0.06);
+            cursor: pointer;
+        }
+
+        .link-card:hover {
+            background: #ffffff;
+            border-color: #D4AF37;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+        }
+
+        .link-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .icon-box {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .whatsapp-bg { background-color: #E8F5E9; color: #2E7D32; }
+        .instagram-bg { background: #FCE4EC; color: #C2185B; }
+        .catalog-bg { background-color: #FFF8E1; color: #B78103; }
+        .google-bg { background-color: #E8EAF6; color: #3F51B5; }
+        .pix-bg { background-color: #E0F2F1; color: #00796B; }
+        .wifi-bg { background-color: #FFF3E0; color: #E65100; }
+
+        .link-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .link-title {
+            font-size: 0.88rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #362D2C;
+            text-transform: uppercase;
+        }
+
+        .link-subtitle {
+            font-size: 0.75rem;
+            color: #8C6D68;
+            margin-top: 2px;
+        }
+
+        .arrow-icon {
+            color: #D4AF37;
+            font-size: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .link-card:hover .arrow-icon {
+            transform: translateX(3px);
+        }
+
+        .wifi-card {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #E8D5C4;
+            border-radius: 20px;
+            padding: 16px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            box-shadow: 0 4px 15px rgba(140, 109, 104, 0.06);
+            margin-bottom: 25px;
+        }
+
+        .wifi-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .wifi-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-grow: 1;
+        }
+
+        .wifi-item i {
+            color: #D4AF37;
+            font-size: 1.2rem;
+            width: 25px;
+            text-align: center;
+        }
+
+        .wifi-details {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .wifi-label {
+            font-size: 0.68rem;
+            color: #8C6D68;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .wifi-value-input {
+            background: #FAF4F4;
+            border: 1px solid #E8D5C4;
+            border-radius: 10px;
+            color: #4A3E3D;
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 3px;
+            outline: none;
+        }
+
+        .copy-btn {
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid #D4AF37;
+            color: #B78103;
+            padding: 8px 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .copy-btn:hover {
+            background: #D4AF37;
+            color: #ffffff;
+        }
+
+        .footer-brand {
+            font-family: 'Cormorant Garamond', serif;
+            color: #B78103;
+            font-size: 1rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
+            font-style: italic;
+        }
+
+        .footer-tagline {
+            font-size: 0.65rem;
+            color: #8C6D68;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 25px;
+            background: #4A3E3D;
+            color: #FFF0F3;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            z-index: 100;
+            border: 1px solid #D4AF37;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo-circle">
+                <div class="logo-title">You Plus</div>
+                <div class="logo-subtitle">Elegance in every curve</div>
+            </div>
+            <div class="slogan">Elegância e autocuidado em cada detalhe</div>
+        </header>
+
+        <div class="links-container">
+            <!-- WhatsApp -->
+            <a href="https://api.whatsapp.com/send?phone=5500000000000" target="_blank" class="link-card">
+                <div class="link-left">
+                    <div class="icon-box whatsapp-bg"><i class="fa-brands fa-whatsapp"></i></div>
+                    <div class="link-info">
+                        <span class="link-title">Atendimento & Agendamentos</span>
+                        <span class="link-subtitle">Fale conosco no WhatsApp</span>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/" target="_blank" class="link-card">
+                <div class="link-left">
+                    <div class="icon-box instagram-bg"><i class="fa-brands fa-instagram"></i></div>
+                    <div class="link-info">
+                        <span class="link-title">Siga no Instagram</span>
+                        <span class="link-subtitle">Acompanhe nossas novidades</span>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
+            </a>
+
+            <!-- Catálogo / Serviços -->
+            <a href="#" target="_blank" class="link-card">
+                <div class="link-left">
+                    <div class="icon-box catalog-bg"><i class="fa-solid fa-sparkles"></i></div>
+                    <div class="link-info">
+                        <span class="link-title">Catálogo de Serviços</span>
+                        <span class="link-subtitle">Conheça nossos procedimentos</span>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
+            </a>
+
+            <!-- Avaliação Google -->
+            <a href="#" target="_blank" class="link-card">
+                <div class="link-left">
+                    <div class="icon-box google-bg"><i class="fa-brands fa-google"></i></div>
+                    <div class="link-info">
+                        <span class="link-title">Avaliações dos Clientes</span>
+                        <span class="link-subtitle">Deixe sua opinião no Google</span>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
+            </a>
+
+            <!-- Pagamento PIX -->
+            <div class="link-card" onclick="copyText('SUA_CHAVE_PIX_AQUI', 'Chave Pix')">
+                <div class="link-left">
+                    <div class="icon-box pix-bg"><i class="fa-solid fa-qrcode"></i></div>
+                    <div class="link-info">
+                        <span class="link-title">Pagamento via PIX</span>
+                        <span class="link-subtitle">Toque para copiar a chave Pix</span>
+                    </div>
+                </div>
+                <i class="fa-regular fa-copy arrow-icon"></i>
+            </div>
+
+            <!-- Botão Wi-Fi -->
+            <a href="#wifi-section" class="link-card">
+                <div class="link-left">
+                    <div class="icon-box wifi-bg"><i class="fa-solid fa-wifi"></i></div>
+                    <div class="link-info">
+                        <span class="link-title">Wi-Fi do Espaço</span>
+                        <span class="link-subtitle">Conecte-se durante seu atendimento</span>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right arrow-icon"></i>
+            </a>
+        </div>
+
+        <!-- Cartão de Wi-Fi -->
+        <div class="wifi-card" id="wifi-section">
+            <div class="wifi-row">
+                <div class="wifi-item">
+                    <i class="fa-solid fa-wifi"></i>
+                    <div class="wifi-details">
+                        <span class="wifi-label">Rede Wi-Fi</span>
+                        <input type="text" readonly value="YouPlus_Guest" id="wifi-ssid" class="wifi-value-input">
+                    </div>
+                </div>
+                <button class="copy-btn" onclick="copyValue('wifi-ssid', 'Nome da rede')">
+                    <i class="fa-regular fa-copy"></i>
+                </button>
+            </div>
+
+            <div class="wifi-row">
+                <div class="wifi-item">
+                    <i class="fa-solid fa-lock"></i>
+                    <div class="wifi-details">
+                        <span class="wifi-label">Senha</span>
+                        <input type="text" readonly value="YouPlus2024" id="wifi-pass" class="wifi-value-input">
+                    </div>
+                </div>
+                <button class="copy-btn" onclick="copyValue('wifi-pass', 'Senha')">
+                    <i class="fa-regular fa-copy"></i>
+                </button>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-brand">You Plus</div>
+            <div class="footer-tagline">Elegance in every curve</div>
+        </footer>
+    </div>
+
+    <div id="toast" class="toast">Copiado para a área de transferência!</div>
+
+    <script>
+        function copyValue(elementId, labelText) {
+            const input = document.getElementById(elementId);
+            input.select();
+            input.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(input.value).then(() => {
+                showToast(`${labelText} copiada com sucesso!`);
+            });
+        }
+
+        function copyText(text, labelText) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(`${labelText} copiada com sucesso!`);
+            });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => { toast.classList.remove('show'); }, 2500);
+        }
+    </script>
+</body>
+</html>
